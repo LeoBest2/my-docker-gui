@@ -1,0 +1,16 @@
+{
+    "Command": "\"v2raya\"",
+    "CreatedAt": "2023-01-31 19:12:02 +0800 CST",
+    "ID": "797de74719cd",
+    "Image": "mzz2017/v2raya",
+    "Labels": "maintainer=V2Fly Community \u003cdev@v2fly.org\u003e",
+    "LocalVolumes": "0",
+    "Mounts": "/etc/v2raya",
+    "Names": "v2raya",
+    "Networks": "bridge",
+    "Ports": "",
+    "RunningFor": "6 weeks ago",
+    "Size": "0B",
+    "State": "exited",
+    "Status": "Exited (0) 17 hours ago"
+}
