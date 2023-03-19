@@ -44,6 +44,26 @@ export namespace main {
 		    return a;
 		}
 	}
+	export class Image {
+	    ID: string;
+	    Repository: string;
+	    Tag: string;
+	    Created: string;
+	    Size: string;
+	
+	    static createFrom(source: any = {}) {
+	        return new Image(source);
+	    }
+	
+	    constructor(source: any = {}) {
+	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.ID = source["ID"];
+	        this.Repository = source["Repository"];
+	        this.Tag = source["Tag"];
+	        this.Created = source["Created"];
+	        this.Size = source["Size"];
+	    }
+	}
 
 }
 

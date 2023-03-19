@@ -9,3 +9,7 @@ export function ContainerList():Promise<Array<main.Container>>;
 export function ContainerStart(arg1:string):Promise<void>;
 
 export function ContainerStop(arg1:string):Promise<void>;
+
+export function ImageDelete(arg1:string):Promise<void>;
+
+export function ImageList():Promise<Array<main.Image>>;

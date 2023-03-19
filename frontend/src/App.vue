@@ -22,10 +22,6 @@ const selectedKeys = ref(['1']);
 </script>
 
 <style scoped>
-.layout {
-  height: 100%;
-}
-
 .logo {
   float: left;
   width: 200px;

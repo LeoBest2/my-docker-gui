@@ -17,3 +17,11 @@ export function ContainerStart(arg1) {
 export function ContainerStop(arg1) {
   return window['go']['main']['App']['ContainerStop'](arg1);
 }
+
+export function ImageDelete(arg1) {
+  return window['go']['main']['App']['ImageDelete'](arg1);
+}
+
+export function ImageList() {
+  return window['go']['main']['App']['ImageList']();
+}
