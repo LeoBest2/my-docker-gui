@@ -25,3 +25,7 @@ export function ImageDelete(arg1) {
 export function ImageList() {
   return window['go']['main']['App']['ImageList']();
 }
+
+export function Info() {
+  return window['go']['main']['App']['Info']();
+}

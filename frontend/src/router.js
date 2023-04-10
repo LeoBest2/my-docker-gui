@@ -4,8 +4,12 @@ const routes = [
   {
     path: "/",
     redirect: () => {
-      return { path: "/container" };
+      return { path: "/info" };
     }
+  },
+  {
+    path: "/info",
+    component: () => import('./views/InfoView.vue'),
   },
   {
     path: "/container",

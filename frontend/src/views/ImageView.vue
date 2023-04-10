@@ -15,9 +15,11 @@
     </a-spin>
 </template>
 <script setup>
-import { ref } from 'vue';
+import { onBeforeMount, ref } from 'vue';
 import { ImageList, ImageDelete } from "../../wailsjs/go/main/App";
 import { message } from "ant-design-vue";
+
+onBeforeMount(() => handleRefresh());
 
 const spinning = ref(false);
 

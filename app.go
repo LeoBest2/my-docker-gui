@@ -95,6 +95,10 @@ func (a *App) ImageDelete(ID string) error {
 	return err
 }
 
+func (a *App) Info() (types.Info, error) {
+	return Cli.Info(context.Background())
+}
+
 type Container struct {
 	ID      string       `json:"ID"`
 	Names   []string     `json:"Names"`
