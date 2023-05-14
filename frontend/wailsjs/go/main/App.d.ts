@@ -16,3 +16,5 @@ export function ImageDelete(arg1:string):Promise<void>;
 export function ImageList():Promise<Array<main.Image>>;
 
 export function Info():Promise<types.Info>;
+
+export function Log(arg1:string):Promise<string>;

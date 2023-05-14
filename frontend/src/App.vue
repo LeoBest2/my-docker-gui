@@ -6,6 +6,7 @@
         <a-menu-item key="1"><router-link to="/info">版本信息</router-link></a-menu-item>
         <a-menu-item key="2"><router-link to="/container">容器管理</router-link></a-menu-item>
         <a-menu-item key="3"><router-link to="/image">镜像管理</router-link></a-menu-item>
+        <a-menu-item key="4"><router-link to="/log">日志信息</router-link></a-menu-item>
       </a-menu>
     </a-layout-header>
     <a-layout-content style="padding: 16px 50px">

@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"io/ioutil"
 	"strings"
 	"time"
 
@@ -97,6 +98,18 @@ func (a *App) ImageDelete(ID string) error {
 
 func (a *App) Info() (types.Info, error) {
 	return Cli.Info(context.Background())
+}
+
+func (a *App) Log(ID string) (string, error) {
+	reader, err := Cli.ContainerLogs(context.Background(), ID, types.ContainerLogsOptions{ShowStdout: true, ShowStderr: true})
+	if err != nil {
+		return "", err
+	}
+	b, err := ioutil.ReadAll(reader)
+	if err != nil {
+		return "", err
+	}
+	return string(b), nil
 }
 
 type Container struct {

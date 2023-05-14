@@ -19,6 +19,10 @@ const routes = [
     path: "/image",
     component: () => import('./views/ImageView.vue'),
   },
+  {
+    path: "/log",
+    component: () => import('./views/LogView.vue'),
+  },
 ];
 
 export const router = createRouter({ history: createWebHashHistory(), routes });

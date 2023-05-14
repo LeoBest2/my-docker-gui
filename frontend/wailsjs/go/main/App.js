@@ -29,3 +29,7 @@ export function ImageList() {
 export function Info() {
   return window['go']['main']['App']['Info']();
 }
+
+export function Log(arg1) {
+  return window['go']['main']['App']['Log'](arg1);
+}
