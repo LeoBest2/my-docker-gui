@@ -4,11 +4,14 @@ import (
 	"context"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"strings"
 	"time"
 
 	"github.com/docker/docker/api/types"
 	"github.com/docker/docker/api/types/container"
+	"github.com/docker/docker/api/types/filters"
+	"github.com/docker/docker/api/types/volume"
 	"github.com/docker/docker/client"
 )
 
@@ -110,6 +113,20 @@ func (a *App) Log(ID string) (string, error) {
 		return "", err
 	}
 	return string(b), nil
+}
+
+func (a *App) VolumeList() ([]*volume.Volume, error) {
+	resp, err := Cli.VolumeList(context.Background(), filters.Args{})
+	if err != nil {
+		return nil, err
+	}
+	return resp.Volumes, nil
+}
+
+func (a *App) VolumeDelete(ID string) error {
+	log.Printf("%v", ID)
+	err := Cli.VolumeRemove(context.Background(), ID, true)
+	return err
 }
 
 type Container struct {

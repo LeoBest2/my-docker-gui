@@ -33,3 +33,11 @@ export function Info() {
 export function Log(arg1) {
   return window['go']['main']['App']['Log'](arg1);
 }
+
+export function VolumeDelete(arg1) {
+  return window['go']['main']['App']['VolumeDelete'](arg1);
+}
+
+export function VolumeList() {
+  return window['go']['main']['App']['VolumeList']();
+}

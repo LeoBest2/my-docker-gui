@@ -161,3 +161,102 @@ export namespace types {
 
 }
 
+export namespace volume {
+	
+	export class UsageData {
+	    RefCount: number;
+	    Size: number;
+	
+	    static createFrom(source: any = {}) {
+	        return new UsageData(source);
+	    }
+	
+	    constructor(source: any = {}) {
+	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.RefCount = source["RefCount"];
+	        this.Size = source["Size"];
+	    }
+	}
+	export class ClusterVolume {
+	    // Go type: Info
+	    "?"?: any;
+	
+	    static createFrom(source: any = {}) {
+	        return new ClusterVolume(source);
+	    }
+	
+	    constructor(source: any = {}) {
+	        if ('string' === typeof source) source = JSON.parse(source);
+	        this[""] = this.convertValues(source[""], null);
+	    }
+	
+		convertValues(a: any, classs: any, asMap: boolean = false): any {
+		    if (!a) {
+		        return a;
+		    }
+		    if (a.slice) {
+		        return (a as any[]).map(elem => this.convertValues(elem, classs));
+		    } else if ("object" === typeof a) {
+		        if (asMap) {
+		            for (const key of Object.keys(a)) {
+		                a[key] = new classs(a[key]);
+		            }
+		            return a;
+		        }
+		        return new classs(a);
+		    }
+		    return a;
+		}
+	}
+	export class Volume {
+	    // Go type: ClusterVolume
+	    ClusterVolume?: any;
+	    CreatedAt?: string;
+	    Driver: string;
+	    Labels: {[key: string]: string};
+	    Mountpoint: string;
+	    Name: string;
+	    Options: {[key: string]: string};
+	    Scope: string;
+	    Status?: {[key: string]: any};
+	    UsageData?: UsageData;
+	
+	    static createFrom(source: any = {}) {
+	        return new Volume(source);
+	    }
+	
+	    constructor(source: any = {}) {
+	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.ClusterVolume = this.convertValues(source["ClusterVolume"], null);
+	        this.CreatedAt = source["CreatedAt"];
+	        this.Driver = source["Driver"];
+	        this.Labels = source["Labels"];
+	        this.Mountpoint = source["Mountpoint"];
+	        this.Name = source["Name"];
+	        this.Options = source["Options"];
+	        this.Scope = source["Scope"];
+	        this.Status = source["Status"];
+	        this.UsageData = this.convertValues(source["UsageData"], UsageData);
+	    }
+	
+		convertValues(a: any, classs: any, asMap: boolean = false): any {
+		    if (!a) {
+		        return a;
+		    }
+		    if (a.slice) {
+		        return (a as any[]).map(elem => this.convertValues(elem, classs));
+		    } else if ("object" === typeof a) {
+		        if (asMap) {
+		            for (const key of Object.keys(a)) {
+		                a[key] = new classs(a[key]);
+		            }
+		            return a;
+		        }
+		        return new classs(a);
+		    }
+		    return a;
+		}
+	}
+
+}
+

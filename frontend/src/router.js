@@ -23,6 +23,10 @@ const routes = [
     path: "/log",
     component: () => import('./views/LogView.vue'),
   },
+  {
+    path: "/volume",
+    component: () => import('./views/VolumeView.vue'),
+  },
 ];
 
 export const router = createRouter({ history: createWebHashHistory(), routes });
